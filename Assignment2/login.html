@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShowTrackr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial;
+background-color: #E6E6FA;}
+#logi{ width: 40%; text-align:center;}
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid ash;
+  box-sizing: border-box;}
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+form{background-color: white;
+  box-shadow: 5px 5px 5px 5px rgba(0.2, 0.2, 0.2, 0.2);
+  margin: 120px 200px;
+}
+
+  .fb {
+  background-color: #3B5998;
+  color: white;
+}
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+.btn {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  border-style: none;
+  border-color: #F8F8FF;
+
+}
+
+
+a{
+  text-decoration: none;
+  color:black;
+}
+</style>
+</head>
+<body>
+<div class="tab">
+  <button style="background-color:yellow;"><b>show</b>Trackr</button>
+  <button ><a href="Home.html">Home</a></button>
+  <button ><a href="Add.html">Add</a></button>
+  <div style="float:right"><button ><a href="login.html">Login</a></button>
+  <button><a href="signup.html">Signup</a></button></div>
+
+</div>
+
+
+<div id="login" >
+  <center>
+   <div id="logi"><form action="/action_page.php" id="box">
+ <fieldset style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);border:none;">
+  <h1>Login</h1>
+  <input type="email" id="email" name="email" placeholder="E-mail"><br>
+  <input type="password" id="password" name="password" placeholder="Password"><br>
+  <button onClick="user()" onClick="user()" style="background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;">Login</button>
+  <p><b>Forgot Password?</b><p>
+    <p style="color:grey;">Don't have an account yet?<a href="signup.html">Signup</a></p>
+    <p><b>or</b></p>
+
+        <a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+         </a>
+         <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+         </i> Login with Google+
+       </a>
+
+
+ </fieldset>
+</form>
+</div>
+</div>
+<script>
+function user(){
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var userEmail=["kabishkaran63@gmail.com","kabish122@gmail.com","kabish@gmail.com","kabish12@gmail.com","kabish23@gmail.com"];
+  var userPassword=["1234","1234","1234","1234","1234"];
+
+  for (var i =0 ; i < userEmail.length -1; i++) {
+    if (email==userEmail[i] && password==userPassword[i]) {
+        window.alert( 'Login Sucessful ');
+        var x = true;
+      }
+    }
+          if (x) {
+           }else{
+            window.alert('login unsucessful')
+          }
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShowTrackr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial;
+background-color: #E6E6FA;}
+#sign{ width: 40%; text-align:center;}
+input[type=email], input[type=password],input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid ash;
+  box-sizing: border-box;}
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+form{background-color: white;
+  box-shadow: 5px 5px 5px 5px rgba(0.2, 0.2, 0.2, 0.2);
+  margin: 120px 200px;
+}
+
+.btn {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  border-style: none;
+  border-color: #F8F8FF;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+
+</style>
+</head>
+<body>
+<div class="tab">
+  <button style="background-color:yellow;"><b>show</b>Trackr</button>
+  <button ><a href="Home.html">Home</a></button>
+  <button ><a href="Add.html">Add</a></button>
+  <div style="float:right"><button ><a href="login.html">Login</a></button>
+  <button><a href="signup.html">Signup</a></button></div>
+
+</div>
+
+
+<div id="signup" >
+  <center>
+   <div id="sign"><form name="myForm"action="/action_page.php" id="box">
+ <fieldset style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);border:none;">
+  <h1>Signup</h1>
+  <input onmouseenter="return myFunction1()"  oninput="return validateForm()" name="fname" required id="login-username" type="text" placeholder="Name"><br>
+  <div class="msgnam" style="color:red;float:left;" id="demo"></div>
+  <input onmouseenter="return myFunction()"  oninput="return email_validate()" type="email" placeholder="Email" id="email"><br>
+  <div class="msgemail" style="color:red;float:left;" id="status"></div>
+  <input onmouseover="return myFunction2()" id="login-password"  oninput="return validatePassword()" name="password" type="password" placeholder="Password"><br>
+  <div class="msgpass" style="color:red;float:left;" id="pass"></div>
+  <button type="submit" style="background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;">Signup</button>
+  <p style="color:grey;">By clicking on Signup, You agree to <a href="#">terms & conditions</a> and<a href="#">privacy policy</a></p>
+  <p style="color:grey;">Already have an account yet?<a href="login.html">log in now</a></p>
+
+
+ </fieldset>
+</form>
+</div>
+</div>
+
+<script>
+function email_validate() {
+  var Regmail =  /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
+    var x = document.forms["myForm"]["email"].value;
+    if (Regmail.test(x) == false) {
+        document.getElementById('status').innerHTML="Your email address is invalid.";
+       document.getElementById('status').style.color = 'red';
+    }else {
+      document.getElementById('status').innerHTML=" you have entered a valid Email address!"
+        document.getElementById('status').style.color = 'green';
+    }
+}
+
+
+function validateForm() {
+  var Regname = /^([a-zA-z\s]{5,32})$/ ;
+    var x = document.forms["myForm"]["fname"].value;
+    if (Regname.test(x) == false) {
+        document.getElementById('demo').innerHTML="Name must be 5 Characters & No Numbers";
+        document.getElementById('demo').style.color='red'
+    }else {
+      document.getElementById('demo').innerHTML="Valid User name"
+        document.getElementById('demo').style.color = 'green';
+    }
+}
+
+function validatePassword() {
+   var Regpass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$/;
+   var x = document.forms["myForm"]["password"].value;
+    if(Regpass.test(x) == false) {
+       document.getElementById('pass').innerHTML="Password must contain at least one capital case, one simple case, one number, one symbol and should be exactly 8 characters long";
+    }else {
+      document.getElementById('pass').innerHTML="Valid Password"
+     document.getElementById('pass').style.color = 'green';
+    }
+}
+
+var names  = [];
+var emails   = [];
+var passwords = [];
+var userDetails = [];
+
+ function insert() {
+   var x = document.forms["myForm"]["fname"].value;
+   var y =document.forms["myForm"]["email"].value;
+   var z =  document.forms["myForm"]["password"].value;
+
+  names.push(x);
+  emails.push(y);
+  passwords.push(z);
+  userDetails.push({name: x,email:y ,password:z});
+
+  var Regpass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$/;
+  var Regname = /^([a-zA-z\s]{5,32})$/ ;
+  var Regmail =  /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
+
+      if (Regpass.test(z) == false || Regname.test(x) == false || Regmail.test(y) == false){
+        alert("Input Correct Info...!!");
+      }else {
+        alert("You have successfully Sign Up");
+     }
+}
+
+function myFunction() {
+  var empInput =  /^(?![\s\S])/;
+  var a = document.forms["myForm"]["email"].value;
+     if (empInput.test(a) !== false){
+        var x = document.getElementsByClassName("msgemail");
+        x[0].innerHTML ="Your email address is required.";
+        return false;
+        };
+  }
+function myFunction1() {
+  var empInput =  /^(?![\s\S])/;
+  var b=  document.forms["myForm"]["fname"].value;
+      if (empInput.test(b) !== false){
+        var x = document.getElementsByClassName("msgnam");
+        x[0].innerHTML ="your name is required.";
+        return false;
+        };
+    }
+
+function myFunction2() {
+  var empInput =  /^(?![\s\S])/;
+  var c = document.forms["myForm"]["password"].value
+      if (empInput.test(c) !== false){
+      var x = document.getElementsByClassName("msgpass");
+      x[0].innerHTML ="Password is required.";
+     return false;
+         };
+   }
+
+</script>
+
+</body>
+</html>
